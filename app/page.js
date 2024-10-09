@@ -1,95 +1,51 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import {Box, Stack, Typography} from '@mui/material'
+
+const item = ['tomato', 'abvocado', 'onion', 'garlic', 'ginger', 'carrot', 'tomato', 'abvocado', 'onion', 'garlic', 'ginger', 'carrot']
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  <Box 
+    width="100vw" 
+    height="100vh" 
+    display={'flex'} 
+    justifyContent={'center'} 
+    flexDirection={'column'}
+    alignItems={'center'} 
+    > 
+    <Box border={'1px solid #333'}>
+    <Box
+      width="800px"
+      height="100px"
+      bgcolor={'#FFB6C1'}  
+      display={'flex'}
+      justifyContent={'center'}
+    >
+      <Typography variant='h2' color='#333' textAlign={'center'}>
+        Pantry Items
+      </Typography>
+    </Box>
+    <Stack width="800px"height="300px" spacing={2} overflow={'auto'}>
+      {item.map((i) => (
+        <Box 
+          key={i} 
+          width="100%" 
+          height="300px" 
+          display={'flex'} 
+          justifyContent={'center'} 
+          bgcolor={'#f0f0f0'} 
           >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Typography
+          variant='h5'
+          color='#333'
+          textAlign={'center'}
+          fontWeight={'bold'}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          {i.charAt(0).toUpperCase() + i.slice(1)}
+        </Typography>
+        </Box>
+      ))}
+      </Stack>
+      </Box>
+    </Box>
+  )
 }
